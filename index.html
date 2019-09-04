@@ -9,11 +9,11 @@
 
     <link rel="stylesheet" href="style.css" />
 
-    
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -26,22 +26,20 @@
 
 <body class="body-color">
 
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
     <div class="container">
         <div class="page-lock">
             <div class="page-logo">
                 <a class="brand" href="index.html">
-                    <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/layout/img/logo-big.png"
-                        alt="logo" />
                 </a>
             </div>
             <div class="page-body">
                 <div class="lock-head">
-                    Locked
+                    Login
                 </div>
                 <div class="lock-body">
                     <div class="pull-left lock-avatar-block">
-                        <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/photo3.jpg"
-                            class="lock-avatar">
                     </div>
                     <form class="lock-form pull-left" action="index.html" method="post">
                         <h4>こんにちはwata-labさん</h4>
@@ -54,7 +52,7 @@
                                 else.</small>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" id="app">
                             <input class="form-control placeholder-no-fix" type="password" autocomplete="off"
                                 placeholder="Password" name="password" />
                         </div>
