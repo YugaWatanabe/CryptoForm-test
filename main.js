@@ -6,6 +6,8 @@ const electron = require("electron");
 // アプリケーションをコントロールするモジュール
 const app = electron.app;
 
+const ipcMain = electron.ipcMain;
+
 // ウィンドウを作成するモジュール
 const BrowserWindow = electron.BrowserWindow;
 
@@ -27,7 +29,7 @@ app.on("ready", () => {
   //ウィンドウサイズを1280*720（フレームサイズを含まない）に設定する
   mainWindow = new BrowserWindow({ width: 1280, height: 720, useContentSize: true });
   //使用するhtmlファイルを指定する
-  mainWindow.loadURL(`file://${__dirname}/index.html`);
+  mainWindow.loadFile("index.html");
 
   // ウィンドウが閉じられたらアプリも終了
   mainWindow.on("closed", () => {
@@ -39,9 +41,15 @@ app.on("ready", () => {
 app.on("login", (event, webContents, request, authInfo, callback) => {
   event.preventDefault();
   subWindow = new BrowserWindow({
-    parent: win,
+    parent: mainWindow,
     modal: true
   });
   subWindow.loadFile("auth.html");
   loginCallback = callback;
+});
+
+ipcMain.on("authorization", (event, arg) => {
+  console.log(arg);
+  subWindow.close();
+  loginCallback(arg.username, arg.password);
 });

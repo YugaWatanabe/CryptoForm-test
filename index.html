@@ -30,7 +30,7 @@
     <div class="container">
         <div class="page-lock">
             <div class="page-logo">
-                <a class="brand" href="index.html">
+                <a class="brand" href="auth.html">fdasfags
                 </a>
             </div>
             <div class="page-body">
@@ -40,7 +40,7 @@
                 <div class="lock-body">
                     <div class="pull-left lock-avatar-block">
                     </div>
-                    <form class="lock-form pull-left" action="index.html" method="post">
+                    <form class="lock-form pull-left" action="main.js" method="post">
                         <h4>Welcome!! This is watalab Form.</h4>
 
                         <div class="form-group">
@@ -60,6 +60,16 @@
                             <button type="submit" class="btn btn-success uppercase">Login</button>
                         </div>
                     </form>
+
+                    <script>
+                        const { ipcRenderer } = require("electron");
+                        function submit() {
+                            const username = document.querySelector("#username").value;
+                            const password = document.querySelector("#password").value;
+                            ipcRenderer.send("authorization", { username, password })
+                        }
+                    </script>
+
                 </div>
                 <div class="lock-bottom">
                     <a href="">もしかしてwata-labさんではない?</a>
